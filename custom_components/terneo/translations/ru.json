@@ -37,8 +37,27 @@
     "step": {
       "init": {
         "title": "Настройки Terneo",
-        "description": "Настроить параметры для вашего устройства Terneo"
+        "description": "Настройте параметры вашего устройства Terneo"
+      },
+      "schedule": {
+        "title": "Настройка расписания для {device_name}",
+        "description": "Настройте недельное расписание для вашего устройства Terneo. Формат: {format_example}",
+        "data": {
+          "monday_periods": "Понедельник",
+          "tuesday_periods": "Вторник",
+          "wednesday_periods": "Среда",
+          "thursday_periods": "Четверг",
+          "friday_periods": "Пятница",
+          "saturday_periods": "Суббота",
+          "sunday_periods": "Воскресенье"
+        }
       }
+    },
+    "error": {
+      "save_failed": "Не удалось сохранить расписание на устройстве"
+    },
+    "abort": {
+      "save_failed": "Не удалось сохранить расписание"
     }
   },
   "entity": {

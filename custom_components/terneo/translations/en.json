@@ -38,7 +38,26 @@
       "init": {
         "title": "Terneo Options",
         "description": "Configure options for your Terneo device"
+      },
+      "schedule": {
+        "title": "Schedule Configuration for {device_name}",
+        "description": "Configure weekly schedule for your Terneo device. Format: {format_example}",
+        "data": {
+          "monday_periods": "Monday",
+          "tuesday_periods": "Tuesday",
+          "wednesday_periods": "Wednesday",
+          "thursday_periods": "Thursday",
+          "friday_periods": "Friday",
+          "saturday_periods": "Saturday",
+          "sunday_periods": "Sunday"
+        }
       }
+    },
+    "error": {
+      "save_failed": "Failed to save schedule to device"
+    },
+    "abort": {
+      "save_failed": "Failed to save schedule"
     }
   },
   "entity": {
