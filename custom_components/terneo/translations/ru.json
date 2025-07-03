@@ -1,0 +1,201 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Добавить устройство Terneo",
+        "description": "Введите IP-адрес вашего устройства Terneo",
+        "data": {
+          "host": "IP-адрес"
+        }
+      },
+      "discovery_confirm": {
+        "title": "Подтвердить устройство Terneo",
+        "description": "Хотите добавить устройство Terneo {name} по адресу {host}?"
+      },
+      "reconfigure": {
+        "title": "Перенастроить устройство Terneo",
+        "description": "Обновить IP-адрес для этого устройства Terneo",
+        "data": {
+          "host": "IP-адрес"
+        }
+      }
+    },
+    "error": {
+      "cannot_connect": "Не удалось подключиться к устройству. Проверьте IP-адрес и убедитесь, что устройство доступно.",
+      "invalid_host": "Неверный формат IP-адреса.",
+      "unknown": "Произошла неожиданная ошибка."
+    },
+    "abort": {
+      "already_configured": "Устройство уже настроено",
+      "single_instance_allowed": "Разрешен только один экземпляр интеграции Terneo",
+      "cannot_connect": "Не удается подключиться к устройству",
+      "different_device": "Это другое устройство, отличное от изначально настроенного",
+      "unknown": "Произошла неизвестная ошибка"
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Настройки Terneo",
+        "description": "Настроить параметры для вашего устройства Terneo"
+      }
+    }
+  },
+  "entity": {
+    "climate": {
+      "terneo": {
+        "state_attributes": {
+          "preset_mode": {
+            "state": {
+              "schedule": "Расписание",
+              "manual": "Ручной",
+              "away": "Отсутствие",
+              "temporary": "Временный"
+            }
+          }
+        },
+        "preset_mode": {
+          "schedule": "Расписание",
+          "manual": "Ручной",
+          "away": "Отсутствие",
+          "temporary": "Временный"
+        }
+      }
+    },
+    "sensor": {
+      "floor_temperature": {
+        "name": "Температура пола"
+      },
+      "air_temperature": {
+        "name": "Температура воздуха"
+      },
+      "setpoint_temperature": {
+        "name": "Заданная температура"
+      },
+      "mcu_temperature": {
+        "name": "Температура MCU"
+      },
+      "overheat_temperature": {
+        "name": "Температура датчика перегрева"
+      },
+      "wifi_signal": {
+        "name": "Сигнал WiFi"
+      },
+      "power": {
+        "name": "Мощность"
+      },
+      "heating_state": {
+        "name": "Состояние нагрева"
+      },
+      "floor_sensor_error": {
+        "name": "Обрыв датчика пола"
+      },
+      "floor_sensor_short": {
+        "name": "Замыкание датчика пола"
+      },
+      "air_sensor_error": {
+        "name": "Обрыв датчика воздуха"
+      },
+      "air_sensor_short": {
+        "name": "Замыкание датчика воздуха"
+      },
+      "overheat": {
+        "name": "Перегрев"
+      },
+      "window_open": {
+        "name": "Обнаружение открытого окна"
+      },
+      "proportional_mode": {
+        "name": "Пропорциональный режим"
+      }
+    },
+    "switch": {
+      "power": {
+        "name": "Питание"
+      },
+      "child_lock": {
+        "name": "Детская блокировка"
+      },
+      "night_brightness": {
+        "name": "Ночная яркость"
+      },
+      "pre_heating": {
+        "name": "Предварительный нагрев"
+      },
+      "window_open_detection": {
+        "name": "Обнаружение открытого окна"
+      },
+      "inverted_relay": {
+        "name": "Инвертированное реле"
+      }
+    },
+    "number": {
+      "manual_floor_temp": {
+        "name": "Ручная температура пола"
+      },
+      "manual_air_temp": {
+        "name": "Ручная температура воздуха"
+      },
+      "floor_temp_min": {
+        "name": "Минимальная температура пола"
+      },
+      "floor_temp_max": {
+        "name": "Максимальная температура пола"
+      },
+      "air_temp_min": {
+        "name": "Минимальная температура воздуха"
+      },
+      "air_temp_max": {
+        "name": "Максимальная температура воздуха"
+      },
+      "brightness": {
+        "name": "Яркость"
+      },
+      "hysteresis": {
+        "name": "Гистерезис"
+      }
+    }
+  },
+  "services": {
+    "set_schedule": {
+      "name": "Установить расписание",
+      "description": "Установить недельное расписание для устройства Terneo",
+      "fields": {
+        "day": {
+          "name": "День недели",
+          "description": "День недели (0=Понедельник, 1=Вторник, ..., 6=Воскресенье)"
+        },
+        "periods": {
+          "name": "Периоды расписания",
+          "description": "Список временных периодов с температурами"
+        }
+      }
+    },
+    "get_schedule": {
+      "name": "Получить расписание",
+      "description": "Получить текущее расписание для устройства Terneo"
+    },
+    "set_away_mode": {
+      "name": "Установить режим отсутствия",
+      "description": "Установить режим отсутствия с временем начала и окончания",
+      "fields": {
+        "start_time": {
+          "name": "Время начала",
+          "description": "Время начала режима отсутствия"
+        },
+        "end_time": {
+          "name": "Время окончания",
+          "description": "Время окончания режима отсутствия"
+        },
+        "floor_temperature": {
+          "name": "Температура пола",
+          "description": "Температура пола во время режима отсутствия"
+        },
+        "air_temperature": {
+          "name": "Температура воздуха",
+          "description": "Температура воздуха во время режима отсутствия"
+        }
+      }
+    }
+  }
+}

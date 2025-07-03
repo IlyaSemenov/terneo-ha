@@ -1,0 +1,83 @@
+set_schedule:
+  name: Set Schedule
+  description: Set weekly schedule for a Terneo device
+  target:
+    entity:
+      domain: climate
+      integration: terneo
+  fields:
+    day:
+      name: Day of Week
+      description: Day of the week (0=Monday, 1=Tuesday, ..., 6=Sunday)
+      required: true
+      selector:
+        select:
+          options:
+            - label: Monday
+              value: "0"
+            - label: Tuesday
+              value: "1"
+            - label: Wednesday
+              value: "2"
+            - label: Thursday
+              value: "3"
+            - label: Friday
+              value: "4"
+            - label: Saturday
+              value: "5"
+            - label: Sunday
+              value: "6"
+    periods:
+      name: Schedule Periods
+      description: List of time periods with temperatures (format [[minutes_from_midnight, temperature_in_tenths], ...])
+      required: true
+      example: "[[480, 220], [1080, 180]]"
+      selector:
+        object:
+
+get_schedule:
+  name: Get Schedule
+  description: Get current schedule for a Terneo device
+  target:
+    entity:
+      domain: climate
+      integration: terneo
+
+set_away_mode:
+  name: Set Away Mode
+  description: Set away mode with start and end times
+  target:
+    entity:
+      domain: climate
+      integration: terneo
+  fields:
+    start_time:
+      name: Start Time
+      description: Away mode start time
+      required: true
+      selector:
+        datetime:
+    end_time:
+      name: End Time
+      description: Away mode end time
+      required: true
+      selector:
+        datetime:
+    floor_temperature:
+      name: Floor Temperature
+      description: Floor temperature during away mode
+      required: false
+      selector:
+        number:
+          min: 5
+          max: 45
+          unit_of_measurement: "°C"
+    air_temperature:
+      name: Air Temperature
+      description: Air temperature during away mode
+      required: false
+      selector:
+        number:
+          min: 5
+          max: 35
+          unit_of_measurement: "°C"

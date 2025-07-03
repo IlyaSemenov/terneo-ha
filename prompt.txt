@@ -1,0 +1,40 @@
+I need you to create a Home Assistant integration with a smart heated floor thermostat, named Terneo.
+
+The documentation is published at https://terneo-api.readthedocs.io/ru/latest/ru/intro_ru.html, hope you've familiar.
+
+I ran:
+
+% nc -kluvw 0 23500
+
+and I could see broadcasts:
+
+{"sn":"02800C000D434B5836353920000159","hw":"sx","connection":"noCon","wifi":"-70"}
+{"sn":"1100018006434D5431373520000159","hw":"sx","cloud":"false","connection":"noCon","wifi":"-62","display":"   "}
+{"sn":"1100018006434D5431373520000159","hw":"sx","cloud":"false","connection":"noCon","wifi":"-62","display":"   "}
+{"sn":"02800C000D434B5836353920000159","hw":"sx","cloud":"false","connection":"noCon","wifi":"-70","display":"26.4"}
+{"sn":"1100018006434D5431373520000159","hw":"sx","cloud":"false","connection":"wiFiCon","wifi":"-66","display":"   "}
+
+The integration should auto-generate / auto-discover devices based off these broadcasts.
+
+I have two thermostats, one turned off, both not connected to the cloud. The Home Assistant integration should work regardless of the cloud connection state.
+
+I tested parameters get:
+
+% curl http://192.168.1.80/api.cgi -d '{"cmd":1}'
+{"sn":"02800C000D434B5836353920000159","par":[[23,2,"6"],[114,7,"0"],[115,7,"0"],[29,1,"0"],[0,6,"536112000"],[1,6,"536112000"],[2,2,"0"],[31,1,"26"],[55,2,"24"],[3,2,"0"],[18,2,"1"],[19,2,"10"],[21,1,"0"],[5,1,"26"],[7,1,"5"],[80,1,"0"],[81,1,"0"],[82,1,"0"],[25,2,"15"],[26,1,"45"],[27,1,"5"],[28,2,"16"],[17,4,"156"],[52,4,"0"],[53,4,"480"],[54,2,"3"],[62,1,"45"],[63,1,"5"],[67,4,"511"],[117,7,"0"],[118,7,"0"],[121,7,"0"],[124,7,"0"],[125,7,"0"],[120,7,"0"]]}
+
+I also tested turn off and on:
+
+% curl http://192.168.1.80/api.cgi -d '{"sn":"02800C000D434B5836353920000159","par":[[125,7,"1"]]}'
+{"success":"true"}
+
+% curl http://192.168.1.80/api.cgi -d '{"sn":"02800C000D434B5836353920000159","par":[[125,7,"0"]]}'
+{"success":"true"}
+
+Do not bother with TOTP stuff, consider devices unlocked for LAN operation.
+
+The integration should allow to turn off/on thermostats, record parameters (telemetry), setup schedules.
+
+Use pip-tools (requirements.in) to manage Python libs.
+
+The integration should be installable with HACS. Add hacs.json or whatever else is needed.

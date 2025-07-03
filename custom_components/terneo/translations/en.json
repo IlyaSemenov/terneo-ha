@@ -1,0 +1,195 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Add Terneo Device",
+        "description": "Enter the IP address of your Terneo device",
+        "data": {
+          "host": "IP Address"
+        }
+      },
+      "discovery_confirm": {
+        "title": "Confirm Terneo Device",
+        "description": "Do you want to add the Terneo device {name} at {host}?"
+      },
+      "reconfigure": {
+        "title": "Reconfigure Terneo Device",
+        "description": "Update the IP address for this Terneo device",
+        "data": {
+          "host": "IP Address"
+        }
+      }
+    },
+    "error": {
+      "cannot_connect": "Failed to connect to the device. Please check the IP address and ensure the device is accessible.",
+      "invalid_host": "Invalid IP address format.",
+      "unknown": "Unexpected error occurred."
+    },
+    "abort": {
+      "already_configured": "Device is already configured",
+      "single_instance_allowed": "Only one Terneo integration instance is allowed",
+      "cannot_connect": "Cannot connect to device",
+      "different_device": "This is a different device than the one originally configured",
+      "unknown": "Unknown error occurred"
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Terneo Options",
+        "description": "Configure options for your Terneo device"
+      }
+    }
+  },
+  "entity": {
+    "climate": {
+      "terneo": {
+        "state_attributes": {
+          "preset_mode": {
+            "state": {
+              "schedule": "Schedule",
+              "manual": "Manual",
+              "away": "Away",
+              "temporary": "Temporary"
+            }
+          }
+        }
+      }
+    },
+    "sensor": {
+      "floor_temperature": {
+        "name": "Floor Temperature"
+      },
+      "air_temperature": {
+        "name": "Air Temperature"
+      },
+      "setpoint_temperature": {
+        "name": "Setpoint Temperature"
+      },
+      "mcu_temperature": {
+        "name": "MCU Temperature"
+      },
+      "overheat_temperature": {
+        "name": "Overheat Sensor Temperature"
+      },
+      "wifi_signal": {
+        "name": "WiFi Signal"
+      },
+      "power": {
+        "name": "Power"
+      },
+      "heating_state": {
+        "name": "Heating State"
+      },
+      "floor_sensor_error": {
+        "name": "Floor Sensor Break"
+      },
+      "floor_sensor_short": {
+        "name": "Floor Sensor Short"
+      },
+      "air_sensor_error": {
+        "name": "Air Sensor Break"
+      },
+      "air_sensor_short": {
+        "name": "Air Sensor Short"
+      },
+      "overheat": {
+        "name": "Overheat"
+      },
+      "window_open": {
+        "name": "Window Open Detection"
+      },
+      "proportional_mode": {
+        "name": "Proportional Mode"
+      }
+    },
+    "switch": {
+      "power": {
+        "name": "Power"
+      },
+      "child_lock": {
+        "name": "Child Lock"
+      },
+      "night_brightness": {
+        "name": "Night Brightness"
+      },
+      "pre_heating": {
+        "name": "Pre-heating"
+      },
+      "window_open_detection": {
+        "name": "Window Open Detection"
+      },
+      "inverted_relay": {
+        "name": "Inverted Relay"
+      }
+    },
+    "number": {
+      "manual_floor_temp": {
+        "name": "Manual Floor Temperature"
+      },
+      "manual_air_temp": {
+        "name": "Manual Air Temperature"
+      },
+      "floor_temp_min": {
+        "name": "Floor Temperature Minimum"
+      },
+      "floor_temp_max": {
+        "name": "Floor Temperature Maximum"
+      },
+      "air_temp_min": {
+        "name": "Air Temperature Minimum"
+      },
+      "air_temp_max": {
+        "name": "Air Temperature Maximum"
+      },
+      "brightness": {
+        "name": "Brightness"
+      },
+      "hysteresis": {
+        "name": "Hysteresis"
+      }
+    }
+  },
+  "services": {
+    "set_schedule": {
+      "name": "Set Schedule",
+      "description": "Set weekly schedule for a Terneo device",
+      "fields": {
+        "day": {
+          "name": "Day of Week",
+          "description": "Day of the week (0=Monday, 1=Tuesday, ..., 6=Sunday)"
+        },
+        "periods": {
+          "name": "Schedule Periods",
+          "description": "List of time periods with temperatures"
+        }
+      }
+    },
+    "get_schedule": {
+      "name": "Get Schedule",
+      "description": "Get current schedule for a Terneo device"
+    },
+    "set_away_mode": {
+      "name": "Set Away Mode",
+      "description": "Set away mode with start and end times",
+      "fields": {
+        "start_time": {
+          "name": "Start Time",
+          "description": "Away mode start time"
+        },
+        "end_time": {
+          "name": "End Time",
+          "description": "Away mode end time"
+        },
+        "floor_temperature": {
+          "name": "Floor Temperature",
+          "description": "Floor temperature during away mode"
+        },
+        "air_temperature": {
+          "name": "Air Temperature",
+          "description": "Air temperature during away mode"
+        }
+      }
+    }
+  }
+}
