@@ -4,11 +4,11 @@
   "codeowners": ["@terneo-ha"],
   "config_flow": true,
   "dependencies": [],
-  "documentation": "https://github.com/terneo-ha/terneo-ha",
-  "documentation_url": "https://github.com/terneo-ha/terneo-ha",
+  "documentation": "https://github.com/IlyaSemenov/terneo-ha",
+  "documentation_url": "https://github.com/IlyaSemenov/terneo-ha",
   "integration_type": "device",
   "iot_class": "local_polling",
-  "issue_tracker": "https://github.com/terneo-ha/terneo-ha/issues",
+  "issue_tracker": "https://github.com/IlyaSemenov/terneo-ha/issues",
   "requirements": ["aiohttp>=3.8.0"],
   "version": "1.0.0"
 }

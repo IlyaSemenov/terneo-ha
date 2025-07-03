@@ -72,6 +72,12 @@
               "temporary": "Temporary"
             }
           }
+        },
+        "preset_mode": {
+          "schedule": "Schedule",
+          "manual": "Manual",
+          "away": "Away",
+          "temporary": "Temporary"
         }
       }
     },
