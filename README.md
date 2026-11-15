@@ -36,7 +36,7 @@ This integration supports Terneo Wi-Fi thermostats with firmware version 2.3 and
 
 ### Manual Installation
 
-1. Download the latest release from the [releases page](https://github.com/IlyaSemenov/terneo-ha/releases)
+1. Download this repository (Code → Download ZIP)
 2. Extract the `custom_components/terneo` folder to your Home Assistant `custom_components` directory
 3. Restart Home Assistant
 
